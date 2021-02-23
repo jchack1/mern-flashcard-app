@@ -125,7 +125,7 @@ const AminoAcidFlashcard = () => {
         >
           {/* note: all you need is assets in the path, and react will find your image :)  */}
           <img
-            src={`/assets/aminoAcidImg/${item.name}.svg`}
+            src={`/assets/functionalGroupImg/${item.name}.svg`}
             style={{
               maxWidth: "400px",
               maxHeight: "250px",
