@@ -136,8 +136,8 @@ const FunctionalGroupsFlashcard = () => {
           <img
             src={`/assets/functionalGroupImg/${item.name}.svg`}
             style={{
-              maxWidth: "400px",
-              maxHeight: "250px",
+              maxWidth: "350px",
+              maxHeight: "200px",
               alignSelf: "center",
               justifySelf: "center",
               margin: "0 20px",

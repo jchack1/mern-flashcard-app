@@ -21,7 +21,7 @@ const Card = styled.div`
   }
 
   @media (max-width: 500px) {
-    margin: 50px 30px;
+    margin: 90px 30px;
     justify-content: center;
     padding: 10px;
   }

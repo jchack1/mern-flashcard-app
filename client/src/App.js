@@ -12,17 +12,17 @@ const App = () => {
     <Router>
       <div className="container justify-center" style={{ margin: "0 auto" }}>
         <Switch>
-          <Route exact path="/physics" render={() => <PhysicsFlashcard />} />
+          <Route exact path="/phys" render={() => <PhysicsFlashcard />} />
 
-          <Route exact path="/biology" render={() => <BiologyFlashcard />} />
+          <Route exact path="/bio" render={() => <BiologyFlashcard />} />
           <Route
             exact
-            path="/functionalgroups"
+            path="/organic-chem"
             render={() => <FunctionalGroupsFlashcard />}
           />
           <Route
             exact
-            path="/aminoacids"
+            path="/amino-acids"
             render={() => <AminoAcidFlashcard />}
           />
           <Route exact path="/" render={() => <HomePage />} />
