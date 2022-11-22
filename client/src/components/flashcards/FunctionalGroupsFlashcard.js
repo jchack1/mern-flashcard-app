@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Card = styled.div`
   height: 350px;
@@ -31,7 +31,7 @@ const Header = () => {
       <h1 className="text-4xl font-bold mt-10 text-center text-gray-50 mx-4">
         <i
           className="fas fa-atom"
-          style={{ fontSize: "50px", marginRight: "20px" }}
+          style={{fontSize: "50px", marginRight: "20px"}}
         ></i>{" "}
         Organic Chemistry | Functional Groups
       </h1>
@@ -45,7 +45,7 @@ const Header = () => {
 };
 
 const FunctionalGroupsFlashcard = () => {
-  const url = "/functionalgroups/random";
+  const url = `${process.env.REACT_APP_URL}/functionalgroups/random`;
 
   const [item, setItem] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

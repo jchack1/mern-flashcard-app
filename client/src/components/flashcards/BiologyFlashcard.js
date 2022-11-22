@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Card = styled.div`
   height: 350px;
@@ -53,7 +53,7 @@ const Header = () => {
       <h1 className="text-4xl font-bold mt-10 text-center text-gray-50">
         <i
           className="fas fa-dna"
-          style={{ fontSize: "50px", marginRight: "10px" }}
+          style={{fontSize: "50px", marginRight: "10px"}}
         ></i>{" "}
         Biology
       </h1>
@@ -67,7 +67,7 @@ const Header = () => {
 };
 
 const BiologyFlashcard = () => {
-  const url = "/biology/random";
+  const url = `${process.env.REACT_APP_URL}/biology/random`;
 
   const [item, setItem] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

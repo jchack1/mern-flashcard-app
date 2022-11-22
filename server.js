@@ -3,8 +3,6 @@ const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv").config();
-const URI = require("./config");
 const cors = require("cors");
 
 //needed this line to properly parse json objects in req
@@ -26,7 +24,7 @@ const physics = require("./routes/physics");
 const biology = require("./routes/biology");
 
 //setup of db
-mongoose.connect(URI || process.env.DB_CONNECTION, {
+mongoose.connect(process.env.DB_CONNECTION, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
