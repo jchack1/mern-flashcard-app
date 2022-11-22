@@ -5,9 +5,19 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const URI = require("./config");
+const cors = require("cors");
 
 //needed this line to properly parse json objects in req
 app.use(bodyParser.json());
+
+//cors
+//front end and back end deployed to different urls
+//needed to avoid cors error
+app.use(
+  cors({
+    origin: process.env.ORIGIN,
+  })
+);
 
 //requiring the routes
 const aminoAcids = require("./routes/aminoAcids");
