@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 
 //needed this line to properly parse json objects in req
 app.use(bodyParser.json());
@@ -22,6 +23,7 @@ const aminoAcids = require("./routes/aminoAcids");
 const functionalGroups = require("./routes/functionalGroups");
 const physics = require("./routes/physics");
 const biology = require("./routes/biology");
+const webDev = require("./routes/webDev");
 
 //setup of db
 mongoose.connect(process.env.DB_CONNECTION, {
@@ -41,6 +43,7 @@ app.use("/aminoacids", aminoAcids);
 app.use("/functionalgroups", functionalGroups);
 app.use("/physics", physics);
 app.use("/biology", biology);
+app.use("/webdev", webDev);
 
 //for heroku deployment
 app.use(express.static(__dirname));
