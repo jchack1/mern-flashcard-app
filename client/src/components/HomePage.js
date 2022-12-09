@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const TileContainer = styled.div`
   display: flex;
@@ -67,14 +67,10 @@ const HomePage = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignContent: "center",
-        margin: "0 auto",
       }}
     >
       <H1 className="text-4xl font-bold mt-10 text-center text-gray-50">
-        <i
-          class="fas fa-flask"
-          style={{ margin: "10px", fontSize: "50px" }}
-        ></i>{" "}
+        <i class="fas fa-flask" style={{margin: "10px", fontSize: "50px"}}></i>{" "}
         Science Flashcards
       </H1>
       <TileContainer>
@@ -108,6 +104,14 @@ const HomePage = () => {
               <i class="fas fa-rocket"></i>
             </IconContainer>
             Physics
+          </Tile>
+        </Link>
+        <Link to="/web-dev">
+          <Tile className="bg-yellow-500 hover:bg-yellow-700 flex items-center justify-center text-white font-medium border border-yellow-800 sm:text-lg">
+            <IconContainer>
+              <i class="fas fa-laptop-code"></i>
+            </IconContainer>
+            Web Development
           </Tile>
         </Link>
       </TileContainer>

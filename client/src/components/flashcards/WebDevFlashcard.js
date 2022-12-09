@@ -48,7 +48,8 @@ const Card = styled.div`
 `;
 
 const AnswerDiv = styled.div`
-  p {
+  p,
+  code {
     margin-bottom: 10px;
   }
 
@@ -66,27 +67,38 @@ const AnswerDiv = styled.div`
     font-size: 12px;
   }
 `;
+const QuestionDiv = styled.div`
+  code {
+    background: #ccc;
+  }
+`;
 
 const Header = () => {
   return (
     <div>
       <h1 className="text-4xl font-bold mt-10 text-center text-gray-50">
-        <i
-          className="fas fa-dna"
-          style={{fontSize: "50px", marginRight: "10px"}}
-        ></i>{" "}
-        Biology
+        <i class="fas fa-laptop-code"></i> Web Development
       </h1>
       <Link to="/">
-        <p className="my-4 text-center text-green-500 hover:text-green-700">
+        <p className="my-4 text-center text-yellow-500 hover:text-yellow-700">
           Back to home
         </p>
       </Link>
+
+      <p className="my-8 text-center text-yellow-300 text-xs">
+        Note: these are not my own questions. They come from{" "}
+        <a
+          className="hover:text-yellow-700"
+          href="https://30secondsofinterviews.org/"
+        >
+          https://30secondsofinterviews.org/
+        </a>
+      </p>
     </div>
   );
 };
 
-const BiologyFlashcard = () => {
+const WebDevFlashcard = () => {
   const url = `${process.env.REACT_APP_URL}/webdev/random`;
 
   const [item, setItem] = useState([]);
@@ -100,14 +112,15 @@ const BiologyFlashcard = () => {
         cancelToken: new axios.CancelToken((c) => (cancel = c)),
       })
       .then((res) => {
-        setIsLoading(false);
         setItem(res.data);
+
+        setIsLoading(false);
         console.log(res);
       });
 
     return () => cancel();
   }, [url]);
-
+  console.log(item.question);
   const getAnother = () => {
     let cancel;
 
@@ -123,7 +136,7 @@ const BiologyFlashcard = () => {
     return () => cancel();
   };
 
-  if (isLoading) {
+  if (isLoading || item.question === undefined) {
     return (
       <div>
         <Header />
@@ -143,7 +156,7 @@ const BiologyFlashcard = () => {
           <AnswerDiv>{parse(item.answer)}</AnswerDiv>
           <button
             onClick={getAnother}
-            className="mx-6 sm:mx-28 mt-10 flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-green-500 hover:bg-green-700 flex-initial"
+            className="mx-6 sm:mx-28 mt-10 flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-700 flex-initial"
           >
             Next
           </button>
@@ -160,13 +173,13 @@ const BiologyFlashcard = () => {
           onClick={() => setFlipped(!flipped)}
           className="bg-gray-200 border border-gray-400 shadow-md"
         >
-          <h2 className="text-2xl font-bold text-center mb-6">
-            {item.question}
-          </h2>
+          <QuestionDiv className="text-2xl font-bold text-center mb-6">
+            {parse(item.question)}
+          </QuestionDiv>
         </Card>
       </div>
     );
   }
 };
 
-export default BiologyFlashcard;
+export default WebDevFlashcard;
