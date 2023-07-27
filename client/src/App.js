@@ -28,6 +28,7 @@ const App = () => {
           />
           <Route exact path="/web-dev" render={() => <WebDevFlashcard />} />
           <Route exact path="/" render={() => <HomePage />} />
+          <Route exact path="/*" render={() => <HomePage />} />
         </Switch>
       </div>
     </Router>
